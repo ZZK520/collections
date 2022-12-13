@@ -2,22 +2,29 @@ import Head from 'next/head';
 import Layout, { siteTitle } from '../components/layout';
 import utilStyles from '../styles/utils.module.css';
 import { getSortedPostsData } from '../lib/posts';
+import { getToolsData } from '../lib/tools';
 import Link from 'next/link';
 import Date from '../components/date';
+import Header from '../components/header'
+
+
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
+  const allToolsData=getToolsData();
   return {
     props: {
       allPostsData,
+      allToolsData
     },
   };
 }
-export default function Home({ allPostsData }) {
+export default function Home({ allPostsData,allToolsData }) {
   return (
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
       </Head>
+      <Header></Header>
       <section className={utilStyles.headingMd}>
         <p>[我是朱志康，I’m currently learning Three.js,Vue3,Big Data,Linux]</p>
         <p>
@@ -35,6 +42,13 @@ export default function Home({ allPostsData }) {
               <small className={utilStyles.lightText}>
                 <Date dateString={date} />
               </small>
+            </li>
+          ))}
+        </ul>
+        <ul className={utilStyles.list}>
+          {allToolsData.map(({ id, title }) => (
+            <li className={utilStyles.listItem} key={id}>
+              <Link href={`/tools/${id}`}>{title}</Link>
             </li>
           ))}
         </ul>
