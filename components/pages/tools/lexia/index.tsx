@@ -4,7 +4,7 @@ import axios from "axios";
 import styles from './index.module.css'
 const searchUrl = 'https://lexica.art/api/v1/search'
 const prefix = '?q='
-const description = "根据关键字生成图片";
+export const description = "根据关键字生成图片";
 
 //https://lexica.art/docs
 function Lexia() {
@@ -61,5 +61,4 @@ function Lexia() {
         </>
     )
 }
-const Component = React.memo(Lexia);
-export default Component;
+export default React.memo(Lexia);

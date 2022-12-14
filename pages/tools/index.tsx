@@ -3,7 +3,8 @@ import Layout from '../../components/Layout';
 import Head from 'next/head';
 import utilStyles from '../../styles/utils.module.css';
 import { getToolsData } from '../../lib/tools';
-
+import { description } from '../../components/pages/tools/lexia';
+import Description from '../../components/Description';
 export async function getStaticProps() {
   const allToolsData = getToolsData();
   return {
@@ -19,11 +20,15 @@ export default function Tools({ allToolsData }) {
         <title>tools</title>
       </Head>
       <ul className={utilStyles.list}>
-        {allToolsData.map(({ id }) => (
-          <li className={utilStyles.listItem} key={id}>
-            <Link href={`/tools/${id}`}>{id}</Link>
-          </li>
-        ))}
+        {allToolsData.map(({ id }) => {
+
+          return <>
+            <li className={`${utilStyles.listItem} `} key={id}>
+              <Link href={`/tools/${id}`}>{id}</Link>
+            </li>
+            <Description text={description} className={utilStyles.between_title_description}></Description>
+          </>
+        })}
       </ul>
     </Layout>
   )
