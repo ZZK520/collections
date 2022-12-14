@@ -1,10 +1,30 @@
-import Header from '../../components/header'
+import Link from 'next/link'
+import Layout from '../../components/layout';
+import Head from 'next/head';
+import utilStyles from '../../styles/utils.module.css';
+import { getToolsData } from '../../lib/tools';
 
-export default function IndexPage() {
+export async function getStaticProps() {
+  const allToolsData = getToolsData();
+  return {
+    props: {
+      allToolsData
+    },
+  };
+}
+export default function Tools({ allToolsData }) {
   return (
-    <>
-      <Header />
-      <h1>Hello World!</h1>
-    </>
+    <Layout home={false}>
+      <Head>
+        <title>tools</title>
+      </Head>
+      <ul className={utilStyles.list}>
+        {allToolsData.map(({ id }) => (
+          <li className={utilStyles.listItem} key={id}>
+            <Link href={`/tools/${id}`}>{id}</Link>
+          </li>
+        ))}
+      </ul>
+    </Layout>
   )
 }

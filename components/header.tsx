@@ -8,10 +8,7 @@ export default function Header() {
           <Link href="/">Home</Link>
         </li>
         <li>
-          <Link href="/tools/first">First Tool</Link>
-        </li>
-        <li>
-          <Link href="/tools/second">Second Tool</Link>
+          <Link href="/tools/">Tool</Link>
         </li>
       </ul>
     </header>
