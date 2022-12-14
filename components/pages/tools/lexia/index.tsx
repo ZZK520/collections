@@ -41,20 +41,21 @@ function Lexia() {
                     key={item.id}
                 />
             </div>
-        )
-        , [data])
+        ), [data])
     return (
         <>
-            <article className={`${styles.description} pure-u-1`}>{description}</article>
-            <form className="pure-form" onSubmit={onSubmit}>
-                <input type="text" className="pure-input-rounded" onChange={handleChange} value={inputText} />
-                <button type="button" className="pure-button" onClick={handleSearch}>Search</button>
-            </form>
+            <section className={`${styles.description} pure-u-1`}>{description}</section>
+            <section className={`${styles.control_area} pure-u-1`}>
+                <form className="pure-form" onSubmit={onSubmit}>
+                    <input type="text" className="pure-input-rounded" onChange={handleChange} value={inputText} />
+                    <button type="button" className="pure-button" onClick={handleSearch}>Search</button>
+                </form>
+            </section>
             {
                 error ? <span>Load images error,{error}</span> :
-                    <div className="pure-g">
+                    <section className="pure-g">
                         {imageList}
-                    </div>
+                    </section>
             }
 
         </>
