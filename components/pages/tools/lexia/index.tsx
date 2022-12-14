@@ -11,24 +11,21 @@ function Lexia() {
     const [error, setError] = React.useState(null);
     const handleSearch = () => {
         const finalUrl = `${searchUrl}${prefix}${inputText}`;
-        console.log('finalUrl', finalUrl);
-
         axios.get(finalUrl).then((response) => {
-            console.log('response', response);
-
             const { images } = response.data;
-            console.log('images', images);
-
             setData(images);
         }).catch(error => {
-            console.log('error');
-
+            console.log('Lexia error',error);
             setError(error);
         });;
     }
     const handleChange = (e) => {
         var lowerCase = e.target.value.toLowerCase();
         setInputText(lowerCase);
+    }
+    // 防止默认的提交刷新行为
+    const onSubmit = (event) => {
+        event.preventDefault();
     }
     const imageList = useMemo(() =>
         data.map(item =>
@@ -42,16 +39,21 @@ function Lexia() {
                     key={item.id}
                 />
             </div>
-
         )
         , [data])
     return (
         <>
-            <input type="text" className="pure-input-rounded" onChange={handleChange} value={inputText} />
-            <button className="pure-button" onClick={handleSearch}>Search</button>
-            <div className="pure-g">
-                {imageList}
-            </div>
+            <form className="pure-form" onSubmit={onSubmit}>
+                <input type="text" className="pure-input-rounded" onChange={handleChange} value={inputText} />
+                <button type="button" className="pure-button" onClick={handleSearch}>Search</button>
+
+            </form>
+            {
+                 error  ? <span>Load images error,{error}</span> :
+                    <div className="pure-g">
+                        {imageList}
+                    </div>
+            }
 
         </>
     )
