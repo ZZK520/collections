@@ -1,3 +1,4 @@
+import React, { useMemo } from 'react';
 import Link from 'next/link'
 import Layout from '../../components/Layout';
 import Head from 'next/head';
@@ -13,7 +14,11 @@ export async function getStaticProps() {
     },
   };
 }
+
 export default function Tools({ allToolsData }) {
+  const data = useMemo(() => {
+
+  }, [])
   return (
     <Layout home={false}>
       <Head>
@@ -22,12 +27,12 @@ export default function Tools({ allToolsData }) {
       <ul className={utilStyles.list}>
         {allToolsData.map(({ id }) => {
 
-          return <>
-            <li className={`${utilStyles.listItem} `} key={id}>
-              <Link href={`/tools/${id}`}>{id}</Link>
-            </li>
+
+          return <li className={`${utilStyles.listItem} `} key={id}>
+            <Link href={`/tools/${id}`}>{id}</Link>
             <Description text={description} className={utilStyles.between_title_description}></Description>
-          </>
+          </li>
+
         })}
       </ul>
     </Layout>

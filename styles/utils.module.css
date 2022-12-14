@@ -44,12 +44,12 @@
   }
   
   .listItem {
-    margin: 1rem 0 .5rem 0;
+    margin: 1rem 0 0 0;
   }
   
   .lightText {
     color: #666;
   }
   .between_title_description{
-    margin-bottom: 10px 0 20px 0;
+    margin: 10px 0 0 0;
   }
