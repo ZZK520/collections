@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useMemo } from "react";
 import Image from 'next/image'
 import axios from "axios";
+import styles from './index.module.css'
 const searchUrl = 'https://lexica.art/api/v1/search'
 const prefix = '?q='
+const description = "根据关键字生成图片";
 
 //https://lexica.art/docs
 function Lexia() {
@@ -15,7 +17,7 @@ function Lexia() {
             const { images } = response.data;
             setData(images);
         }).catch(error => {
-            console.log('Lexia error',error);
+            console.log('Lexia error', error);
             setError(error);
         });;
     }
@@ -43,13 +45,13 @@ function Lexia() {
         , [data])
     return (
         <>
+            <article className={`${styles.description} pure-u-1`}>{description}</article>
             <form className="pure-form" onSubmit={onSubmit}>
                 <input type="text" className="pure-input-rounded" onChange={handleChange} value={inputText} />
                 <button type="button" className="pure-button" onClick={handleSearch}>Search</button>
-
             </form>
             {
-                 error  ? <span>Load images error,{error}</span> :
+                error ? <span>Load images error,{error}</span> :
                     <div className="pure-g">
                         {imageList}
                     </div>

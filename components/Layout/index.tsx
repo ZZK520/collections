@@ -1,26 +1,13 @@
 import styles from './index.module.css'
-import Link from 'next/link'
 import Header from '../Header'
-export default function Layout({ children, home }) {
+import {routeConfig} from '../../utils/route'
+const headerTitle="我的小物件";
+const headerDescription="使用 next.js、purecss 开发";
+export default function Layout({ children,home }) {
   return (
     <article id="layout" className="pure-g">
       <article className="sidebar pure-u-1 pure-u-md-1-4">
-        {/* <header className={styles.header}>
-          <h1 className="brand-title">我的工具集</h1>
-          <h2 className="brand-tagline">使用 next.js、pure.css 开发</h2>
-          <ol className={styles.list}>
-            <li>
-              <Link href="/" >Home</Link>
-            </li>
-            <li>
-              <Link href="/tools/">Tool</Link>
-            </li>
-            <li>
-              <Link href="/posts/">Post</Link>
-            </li>
-          </ol>
-        </header> */}
-        <Header></Header>
+        <Header routeConfig={routeConfig} title={headerTitle} description={headerDescription}></Header>
       </article>
       <main className={`${styles.content} pure-u-1 pure-u-md-3-4`}>
         <article className={styles.body}>{children}</article>
