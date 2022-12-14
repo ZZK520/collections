@@ -1,0 +1,25 @@
+
+  
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+          
+.list li {
+  list-style-type: none;
+  counter-increment: item;
+  color: blue;
+}
+
+.list li:before {
+  content: counter(item);
+  margin-right: 5px;
+  font-size: 80%;
+  background-color: #f9dd94;
+  color: #7eb4e2;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 3px;
+}
+    

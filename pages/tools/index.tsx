@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Layout from '../../components/layout';
+import Layout from '../../components/Layout';
 import Head from 'next/head';
 import utilStyles from '../../styles/utils.module.css';
 import { getToolsData } from '../../lib/tools';

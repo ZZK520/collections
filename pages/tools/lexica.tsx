@@ -1,10 +1,9 @@
 import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
-import Script from 'next/script'
 import Head from 'next/head'
-import Layout from '../../components/layout';
+import Layout from '../../components/Layout';
 
-const Header = dynamic(() => import('../../components/header'), {
+const Header = dynamic(() => import('../../components/Header'), {
     suspense: true,
 })
 const Lexia = dynamic(() => import('../../components/pages/tools/lexia'), {
