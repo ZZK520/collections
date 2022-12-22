@@ -24,10 +24,8 @@ export default function Tools({ allToolsData }) {
       <Head>
         <title>tools</title>
       </Head>
-      <ul className={utilStyles.list}>
+      <ul>
         {allToolsData.map(({ id }) => {
-
-
           return <li className={`${utilStyles.listItem} `} key={id}>
             <Link href={`/tools/${id}`}>{id}</Link>
             <Description text={description} className={utilStyles.between_title_description}></Description>

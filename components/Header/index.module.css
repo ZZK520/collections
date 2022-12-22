@@ -1,15 +1,22 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  
-  .header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-          
 .list li {
   list-style-type: none;
   counter-increment: item;
   color: blue;
+}
+
+.list li a {
+  text-decoration: none;
+  color: #7eb4e2;
+}
+
+.list li a:visited {
+  color: #7eb4e2;
 }
 
 .list li:before {
@@ -22,4 +29,3 @@
   padding: 3px 8px;
   border-radius: 3px;
 }
-    

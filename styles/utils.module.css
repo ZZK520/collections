@@ -37,15 +37,19 @@
     padding-top: 1px;
   }
   
-  .list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .listItem {
+  .listItem  {
     margin: 1rem 0 0 0;
+    list-style-type: none;
+    counter-increment: item;
   }
+  .listItem  a{
+   text-decoration: none;
+   color: #7eb4e2;
+  }
+  .listItem  a:visited{
+    color: #7eb4e2;
+   }
+  
   
   .lightText {
     color: #666;
